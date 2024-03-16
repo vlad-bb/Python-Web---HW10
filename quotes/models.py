@@ -8,10 +8,17 @@ class Author(models.Model):
     born_location = models.CharField(max_length=150)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.fullname
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Quote(models.Model):
